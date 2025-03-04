@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Save Water - Environmental Awareness</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/pages.css" />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* Additional in-page enhancements/overrides */
+    .page-body.water-theme {
+      background-color: #e8fff8; /* Light aqua background */
+    }
+
+    /* 
+      Reusable Container for Videos / Iframes
+      ---------------------------------------
+      We set 'position: relative' and a 'padding-bottom' that corresponds
+      to the aspect ratio we want (here ~56.25% for 16:9).
+      Then we absolutely position the iframe to fill the container.
+    */
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 2rem auto; /* center and spacing */
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: #ffffff;
+    }
+
+    /* Local Video Example (optional) */
+    .feature-video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    /* Play/Pause Button Styling (for local video) */
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease;
+    }
+    .play-button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+    .play-button svg {
+      fill: #ffffff;
+      width: 30px;
+      height: 30px;
+    }
+
+    /*
+      Responsive Iframe (YouTube)
+      ---------------------------------------
+      Use absolute positioning within the container.
+      The container's padding-bottom sets the aspect ratio.
+    */
+    .youtube-container {
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio = 9 / 16 = 0.5625 */
+    }
+    .youtube-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+
+<body class="page-body water-theme">
+  <!-- NAVIGATION -->
+  <nav class="page-nav">
+    <a href="../index.html" class="back-button">← Back to Home</a>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-content">
+    <h1 class="page-title">Save Water</h1>
+
+    <!-- RESPONSIVE YOUTUBE VIDEO -->
+    <div class="video-container youtube-container">
+      <iframe
+        id="waterVideoIframe"
+        src="https://www.youtube.com/embed/9yqejA041Z8?autoplay=1&loop=1&playlist=9yqejA041Z8"
+        title="Save Water Awareness"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <!-- INFO SECTION -->
+    <section class="info-section">
+      <h2>Why Save Water?</h2>
+      <p>
+        Water is one of Earth's most precious resources. Despite covering 71% of
+        our planet's surface, only 1% is easily accessible for human use. Every
+        drop counts in our mission to preserve this vital resource.
+      </p>
+
+      <div class="facts-grid">
+        <div class="fact-card">
+          <div class="fact-icon">💧</div>
+          <h3>Daily Usage</h3>
+          <p>The average person uses 150 liters of water per day</p>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🚰</div>
+          <h3>Waste</h3>
+          <p>A leaky faucet can waste up to 20,000 liters per year</p>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🌍</div>
+          <h3>Global Crisis</h3>
+          <p>2.2 billion people lack access to safe drinking water</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIPS SECTION -->
+    <section class="tips-section">
+      <h2>How to Save Water</h2>
+      <div class="tips-container">
+        <div class="tip">
+          <h3>Fix Leaks</h3>
+          <p>Check and repair any leaking taps or pipes in your home.</p>
+          <button
+            class="learn-more"
+            onclick="showTipDetails('leaks')"
+          >
+            Learn More
+          </button>
+        </div>
+        <div class="tip">
+          <h3>Shorter Showers</h3>
+          <p>Take shorter showers or use a timer to limit shower duration.</p>
+          <button
+            class="learn-more"
+            onclick="showTipDetails('showers')"
+          >
+            Learn More
+          </button>
+        </div>
+        <div class="tip">
+          <h3>Water-Wise Garden</h3>
+          <p>Use drought-resistant plants and water early morning or evening.</p>
+          <button
+            class="learn-more"
+            onclick="showTipDetails('garden')"
+          >
+            Learn More
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTION SECTION -->
+    <section class="action-section">
+      <h2>Take Action</h2>
+      <div class="action-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Calculate Your Water Footprint</h3>
+          <p>Use our calculator to see how much water you use daily.</p>
+          <button class="action-button">Calculate Now</button>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Make a Pledge</h3>
+          <p>Commit to reducing your water consumption.</p>
+          <button class="action-button">Take the Pledge</button>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Share the Message</h3>
+          <p>Spread awareness about water conservation.</p>
+          <button class="action-button">Share Now</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <p>Together we can make a difference</p>
+    <div class="social-links">
+      <a href="#" class="social-icon">Share</a>
+      <a href="#" class="social-icon">Tweet</a>
+      <a href="#" class="social-icon">Follow</a>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    /**
+     * Toggles the play/pause state of any local MP4 video
+     * and shows/hides the play button icon.
+     */
+    function toggleVideo(videoId) {
+      const video = document.getElementById(videoId);
+      const button = video.parentElement.querySelector('.play-button');
+      
+      if (video.paused) {
+        video.play();
+        button.style.opacity = '0';  // Hide the play button
+      } else {
+        video.pause();
+        button.style.opacity = '1';  // Show the play button
+      }
+    }
+
+    /**
+     * Displays info about a tip (placeholder function).
+     * Replace alert with your custom modal logic if desired.
+     */
+    function showTipDetails(tip) {
+      alert('Detailed information about ' + tip + ' will be shown here.');
+    }
+  </script>
+</body>
+</html>

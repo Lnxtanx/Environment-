@@ -1,0 +1,406 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+    color: #333;
+}
+
+/* Header Styles */
+.main-header {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(33, 150, 243, 0.1) 100%);
+    margin-bottom: 2rem;
+}
+
+.animated-heading {
+    font-size: 3rem;
+    color: #2196F3;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 0.5rem;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 0.5s;
+}
+
+/* Navigation Styles */
+nav {
+    background: linear-gradient(135deg, #4CAF50, #2196F3);
+    padding: 1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+nav ul li a .icon {
+    font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+nav ul li a.active {
+    background-color: rgba(255,255,255,0.3);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Content Section Styles */
+.content-section {
+    display: none;
+    padding: 2rem;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.content-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animation-container {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    position: relative;
+}
+
+h2 {
+    color: #2196F3;
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #4CAF50, #2196F3);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: lineGrow 1s ease-out forwards;
+}
+
+p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+/* Facts Box Styles */
+.facts-box {
+    background: rgba(33, 150, 243, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border: 1px solid rgba(33, 150, 243, 0.1);
+}
+
+.facts-box h3 {
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+.facts-box ul {
+    list-style: none;
+}
+
+.facts-box ul li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.facts-box ul li::before {
+    content: '•';
+    color: #2196F3;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+/* Enhanced Water Animation */
+.water-animation {
+    position: relative;
+}
+
+.droplet {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #2196F3, #03A9F4);
+    border-radius: 0 50% 50% 50%;
+    transform: rotate(45deg);
+    animation: waterDrop 2s infinite;
+    box-shadow: 0 0 20px rgba(33,150,243,0.3);
+}
+
+.ripple {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    border: 2px solid #2196F3;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+/* Enhanced Tree Animation */
+.tree-animation {
+    position: relative;
+    width: 100px;
+    height: 200px;
+}
+
+.trunk {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 0;
+    background: linear-gradient(to bottom, #795548, #5D4037);
+    animation: growTrunk 2s forwards;
+    border-radius: 5px;
+}
+
+.leaves {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+    border-radius: 50%;
+    opacity: 0;
+    animation: growLeaves 2s 1s forwards;
+    box-shadow: 0 0 20px rgba(76,175,80,0.3);
+}
+
+.birds {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    opacity: 0;
+    animation: flyBirds 3s 2s infinite;
+}
+
+/* Enhanced Earth Animation */
+.earth-animation {
+    position: relative;
+}
+
+.earth {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at 30% 30%, #4CAF50 0%, #2196F3 70%);
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(33,150,243,0.3);
+    position: relative;
+    animation: rotateEarth 20s linear infinite;
+}
+
+.orbit {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    animation: pulseOrbit 2s ease-in-out infinite;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(33, 150, 243, 0.1) 100%);
+}
+
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Animations */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px rgba(33,150,243,0.2);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(33,150,243,0.4);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes lineGrow {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes waterDrop {
+    0% {
+        transform: rotate(45deg) translateY(-100px);
+        opacity: 1;
+    }
+    70% {
+        transform: rotate(45deg) translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(45deg) translateY(0) scale(0.3);
+        opacity: 0;
+    }
+}
+
+@keyframes growTrunk {
+    to {
+        height: 100px;
+    }
+}
+
+@keyframes growLeaves {
+    to {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.2);
+    }
+}
+
+@keyframes flyBirds {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(20px) translateY(-20px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(50px) translateY(0);
+    }
+}
+
+@keyframes rotateEarth {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulseOrbit {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.2;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .animated-heading {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .animation-container {
+        height: 200px;
+    }
+
+    .earth {
+        width: 100px;
+        height: 100px;
+    }
+
+    .content-section {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+} 

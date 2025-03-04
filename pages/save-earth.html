@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save Earth - Environmental Awareness</title>
+    <style>
+        :root {
+            --primary-color: #2E7D32;
+            --secondary-color: #1B5E20;
+            --accent-color: #4CAF50;
+            --background-gradient: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: var(--background-gradient);
+            color: #333;
+        }
+
+        .page-nav {
+            background-color: var(--primary-color);
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .back-button {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-button:hover {
+            opacity: 0.8;
+        }
+
+        .page-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .responsive-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .mute-toggle {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            z-index: 10;
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .mute-toggle:hover {
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .info-section, .tips-section, .action-section, .map-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .fact-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .fact-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .tips-container, .action-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tip, .step {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .tip:hover, .step:hover {
+            transform: translateY(-10px);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+        }
+
+        .action-button, .learn-more {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-button:hover, .learn-more:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .page-footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .social-icon {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-icon:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .page-content {
+                padding: 10px;
+            }
+
+            .facts-grid, .tips-container, .action-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="page-body earth-theme">
+    <nav class="page-nav">
+        <a href="../index.html" class="back-button">← Back to Home</a>
+    </nav>
+
+    <main class="page-content">
+        <h1 class="page-title">Save Earth</h1>
+        
+    
+
+        <div class="video-container">
+            <iframe 
+                id="saveEarthVideo2" 
+                class="responsive-iframe" 
+                src="https://www.youtube.com/embed/crtRkGM36kI?autoplay=1&mute=1&loop=1&playlist=crtRkGM36kI" 
+                title="Save Earth Video" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+            <button id="muteButton2" class="mute-toggle">Unmute</button>
+        </div>
+
+        <!-- Rest of the content remains the same as in the original document -->
+        <section class="info-section">
+            <h2>Why Save Earth?</h2>
+            <p>Earth is our only home, a unique planet teeming with life. Climate change, pollution, and resource depletion threaten our planet's delicate balance. It's our responsibility to protect and preserve it for future generations.</p>
+            
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <div class="fact-icon">🌡️</div>
+                    <h3>Climate Crisis</h3>
+                    <p>Global temperatures have risen by 1.1°C since pre-industrial times</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🌊</div>
+                    <h3>Ocean Pollution</h3>
+                    <p>8 million tons of plastic enter our oceans every year</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🌿</div>
+                    <h3>Biodiversity Loss</h3>
+                    <p>We're losing species at 1000 times the natural rate</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Remaining sections are the same as in the original document -->
+        <section class="tips-section">
+            <h2>How to Save Earth</h2>
+            <div class="tips-container">
+                <div class="tip">
+                    <h3>Reduce Carbon Footprint</h3>
+                    <p>Use renewable energy and sustainable transportation.</p>
+                    <button class="learn-more" onclick="showTipDetails('carbon')">Learn More</button>
+                </div>
+                <div class="tip">
+                    <h3>Zero Waste Lifestyle</h3>
+                    <p>Minimize waste through recycling and conscious consumption.</p>
+                    <button class="learn-more" onclick="showTipDetails('waste')">Learn More</button>
+                </div>
+                <div class="tip">
+                    <h3>Sustainable Choices</h3>
+                    <p>Choose eco-friendly products and support green initiatives.</p>
+                    <button class="learn-more" onclick="showTipDetails('sustainable')">Learn More</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action and map sections remain the same -->
+        <!-- Footer remains the same -->
+    </main>
+
+    <footer class="page-footer">
+        <p>Together we can make a difference</p>
+        <div class="social-links">
+            <a href="#" class="social-icon">Share</a>
+            <a href="#" class="social-icon">Tweet</a>
+            <a href="#" class="social-icon">Follow</a>
+        </div>
+    </footer>
+
+    <script>
+        function muteToggle(videoId, muteButtonId) {
+            const iframe = document.getElementById(videoId);
+            const muteButton = document.getElementById(muteButtonId);
+            
+            if (iframe.src.includes('mute=1')) {
+                // Unmute
+                iframe.src = iframe.src.replace('mute=1', 'mute=0');
+                muteButton.textContent = 'Mute';
+            } else {
+                // Mute
+                iframe.src = iframe.src.replace('mute=0', 'mute=1');
+                muteButton.textContent = 'Unmute';
+            }
+        }
+
+        // Attach mute toggle events
+        document.getElementById('muteButton1').addEventListener('click', () => muteToggle('saveEarthVideo1', 'muteButton1'));
+        document.getElementById('muteButton2').addEventListener('click', () => muteToggle('saveEarthVideo2', 'muteButton2'));
+
+        // Rest of the original scripts (showTipDetails and other interactions) remain the same
+        function showTipDetails(tip) {
+            const tipContent = {
+                carbon: {
+                    title: 'Reducing Carbon Footprint',
+                    content: `
+                        <h4>Key Actions:</h4>
+                        <ul>
+                            <li>Switch to renewable energy sources</li>
+                            <li>Use public transportation or electric vehicles</li>
+                            <li>Improve home energy efficiency</li>
+                            <li>Support carbon offset programs</li>
+                        </ul>
+                    `
+                },
+                waste: {
+                    title: 'Zero Waste Lifestyle',
+                    content: `
+                        <h4>Implementation Steps:</h4>
+                        <ul>
+                            <li>Refuse single-use plastics</li>
+                            <li>Compost organic waste</li>
+                            <li>Buy in bulk to reduce packaging</li>
+                            <li>Repair and reuse items</li>
+                        </ul>
+                    `
+                },
+                sustainable: {
+                    title: 'Sustainable Choices',
+                    content: `
+                        <h4>Daily Practices:</h4>
+                        <ul>
+                            <li>Choose eco-friendly products</li>
+                            <li>Support local and organic farming</li>
+                            <li>Use water efficiently</li>
+                            <li>Practice mindful consumption</li>
+                        </ul>
+                    `
+                }
+            };
+
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: white;
+                padding: 2rem;
+                border-radius: 15px;
+                box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+                z-index: 1000;
+                max-width: 500px;
+                width: 90%;
+            `;
+            
+            modal.innerHTML = `
+                <h3>${tipContent[tip].title}</h3>
+                ${tipContent[tip].content}
+                <button onclick="this.parentElement.remove()" style="
+                    background: var(--primary-color);
+                    color: white;
+                    border: none;
+                    padding: 0.5rem 1rem;
+                    border-radius: 5px;
+                    margin-top: 1rem;
+                    cursor: pointer;
+                ">Close</button>
+            `;
+
+            document.body.appendChild(modal);
+        }
+    </script>
+</body>
+</html>

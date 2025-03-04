@@ -1,0 +1,16 @@
+{
+  "name": "environmental-awareness",
+  "version": "1.0.0",
+  "description": "Environmental awareness webpage with animations and video embedding",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
